@@ -14,6 +14,10 @@ const missingError = res => {
   res.status(404).json({ error: 'This project does not exist'});
 };
 
+const newError = (sts, msg, res) => {
+  res.status(sts).json({ error: `${msg}` })
+}
+
 //middleware
 
 

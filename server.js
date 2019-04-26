@@ -10,7 +10,7 @@ const server = express();
 server.use(express.json());
 server.use(cors());
 server.use(helmet());
-server.use(morgan('dev'));
+// server.use(morgan('dev'));
 
 //import routes
 const actionRoute = require('./routes/actionRoute');
