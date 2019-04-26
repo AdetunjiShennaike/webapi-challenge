@@ -12,3 +12,16 @@ I need this code, just don't know where, perhaps should make some middleware, do
 
 Go code!
 */
+
+//import env
+require('dotenv').config();
+
+//import server 
+const server = require('./server');
+
+//dynamic port
+const PORT = process.env.PORT || 5000;
+
+server.listen(PORT, () => {
+  console.log('\n Cash me Owsiii \n')
+})
