@@ -107,8 +107,7 @@ router.put('/:id', charLimit, (req, res) => {
       return missingError(res);
     }
     else {
-      rtn = { action, project_id, description, notes }
-      res.status(202).json(rtn);
+      res.status(202).json(action);
     }
   })
   .catch( err => { 

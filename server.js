@@ -10,11 +10,11 @@ const server = express();
 server.use(express.json());
 server.use(cors());
 server.use(helmet());
-// server.use(morgan('dev'));
+server.use(morgan('dev'));
 
 //import routes
 const actionRoute = require('./routes/actionRoute');
-const projectRoute = require('./routes/actionRoute');
+const projectRoute = require('./routes/projectRoute');
 
 //add middleware and env item
 const question = process.env.QUESTION
