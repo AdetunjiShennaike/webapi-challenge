@@ -5,6 +5,15 @@ import axios from 'axios'
 let ProjectC = styled.div`
   border: 1px solid yellow;
   background-color: green;
+  width: 800px;
+  text-align: left;
+  word-wrap: break-word;
+`
+
+let ActionC = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
 class Display extends React.Component {
@@ -45,14 +54,14 @@ class Display extends React.Component {
       <div>
           {this.state.projects.map( project => {
             return  <ProjectC>
-                      <p>project name: {project.name}</p>
-                      <p>project description: {project.description}</p>
+                      <p>project name: <br/> {project.name}</p>
+                      <p>project description: <br/> {project.description}</p>
                       {this.state.actions.map( action => {
                         return project.id === action.project_id ? 
-                          <div>
-                            <p>action #{action.id} description: {action.description}</p>
-                            <p>additional notes: {action.notes}</p>
-                          </div>
+                          <ActionC>
+                            <p>action #{action.id} description: <br/> {action.description}</p>
+                            <p>additional notes: <br/> {action.notes}</p>
+                          </ActionC>
                         :
                           console.log('empty')
                       })}
