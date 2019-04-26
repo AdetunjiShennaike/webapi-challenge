@@ -42,26 +42,23 @@ class Display extends React.Component {
 
   render(){
     return(
-      <ProjectC>
-        <p>
-          {this.state.projects.forEach( project => {
-            return  <div>
+      <div>
+          {this.state.projects.map( project => {
+            return  <ProjectC>
                       <p>project name: {project.name}</p>
                       <p>project description: {project.description}</p>
-                    </div>
-            // && 
-            //   this.state.actions.forEach( action => {
-            //     return project.id === action.project_id ? 
-            //       <div>
-            //         <p>action #{action.id} description: {action.description}</p>
-            //         <p>additional notes: {action.notes}</p>
-            //       </div>
-            //     :
-            //       console.log('empty')
-            //   })
+                      {this.state.actions.map( action => {
+                        return project.id === action.project_id ? 
+                          <div>
+                            <p>action #{action.id} description: {action.description}</p>
+                            <p>additional notes: {action.notes}</p>
+                          </div>
+                        :
+                          console.log('empty')
+                      })}
+                    </ProjectC>
           })}
-        </p>
-      </ProjectC>
+      </div>
     )
   }
 }
