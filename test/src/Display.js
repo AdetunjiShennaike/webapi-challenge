@@ -21,7 +21,7 @@ class Display extends React.Component {
     .then( res => {
       console.log('data', res)
       this.setState({
-        actions: res.data
+        actions: res.data.action
       })
     })
     .catch( err => {
@@ -32,7 +32,7 @@ class Display extends React.Component {
     .then( res => {
       console.log('data', res)
       this.setState({
-        projects: res.data
+        projects: res.data.project
       })
     })
     .catch( err => {
@@ -43,21 +43,24 @@ class Display extends React.Component {
   render(){
     return(
       <ProjectC>
-        {this.state.projects.forEach( project => {
-          return  <div>
-                    <p>project name: {project.name}</p>
-                    <p>project description: {project.description}</p>
-                  </div>
-          && 
-            this.state.actions.map( action => {
-              if(project.id === action.project_id) {
-                <div>
-                  <p>action #{action.id} description: {action.description}</p>
-                  <p>additional notes: {action.notes}</p>
-                </div>
-              }
-            })
-        })}
+        <p>
+          {this.state.projects.forEach( project => {
+            return  <div>
+                      <p>project name: {project.name}</p>
+                      <p>project description: {project.description}</p>
+                    </div>
+            // && 
+            //   this.state.actions.forEach( action => {
+            //     return project.id === action.project_id ? 
+            //       <div>
+            //         <p>action #{action.id} description: {action.description}</p>
+            //         <p>additional notes: {action.notes}</p>
+            //       </div>
+            //     :
+            //       console.log('empty')
+            //   })
+          })}
+        </p>
       </ProjectC>
     )
   }
